@@ -155,7 +155,7 @@ public class Aircraft implements DataOperations {
         boolean dataFound = false;
 
         try{
-            System.out.println("Displaying current list of countries");
+            System.out.println("Displaying current list of Aircraft");
             //searchData routine
             cellDataList = new ArrayList();
             rowIterator = sheet.rowIterator();

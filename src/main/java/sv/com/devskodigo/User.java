@@ -32,8 +32,8 @@ public class User implements DataOperations {
     XSSFSheet sheet;
     Map<String, Object[]> data;
     int recordCounter = 1; //1 is Spreadsheet's Header
-    List cellDataList;
-    Iterator rowIterator;
+    List<List<String>> cellDataList;
+    Iterator<Row> rowIterator;
 
     public User(){
         super();
@@ -78,6 +78,8 @@ public class User implements DataOperations {
                     case 3:
                         usrContinue = 0;
                         break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + menuOption);
                 }
 
             }catch(InputMismatchException ime){
@@ -157,12 +159,12 @@ public class User implements DataOperations {
         boolean dataFound = false;
 
         try{
-            System.out.println("Displaying current list of countries");
+            System.out.println("Displaying current list of users");
             //searchData routine
             cellDataList = new ArrayList();
             rowIterator = sheet.rowIterator();
             while (rowIterator.hasNext()) {
-                Row row = (Row) rowIterator.next();
+                Row row = rowIterator.next();
                 Iterator iterator = row.cellIterator();
                 List cellTempList = new ArrayList();
                 while (iterator.hasNext()) {
@@ -201,6 +203,8 @@ public class User implements DataOperations {
                         break;
                     case 3:
                         break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + updateRowOperation);
                 }//end of switch(usrOpt)
             }//end of dataFound
         }catch(Exception e){

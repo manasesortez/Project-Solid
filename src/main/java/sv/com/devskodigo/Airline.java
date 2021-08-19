@@ -141,7 +141,7 @@ public class Airline implements DataOperations {
         boolean dataFound = false;
 
         try{
-            System.out.println("Displaying current list of countries");
+            System.out.println("Displaying current list of airlines");
             //searchData routine
             cellDataList = new ArrayList();
             rowIterator = sheet.rowIterator();
