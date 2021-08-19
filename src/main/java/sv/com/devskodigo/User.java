@@ -149,7 +149,7 @@ public class User implements DataOperations {
 
     @Override
     public void updateData(int recordId){
-
+        id = recordId;
     }
 
     @Override
@@ -177,7 +177,7 @@ public class User implements DataOperations {
                 dataFound = true;
                 //print the content of the cellDataList
                 for (int i = 0; i < cellDataList.size(); i++) {
-                    List cellTempList = (List) cellDataList.get(i);
+                    List cellTempList = cellDataList.get(i);
                     for (int j = 0; j < cellTempList.size(); j++) {
                         Cell cell = (Cell) cellTempList.get(j);
                         String stringCellValue = cell.toString();
@@ -214,11 +214,11 @@ public class User implements DataOperations {
 
     @Override
     public void deleteData(int recordId){
-
+        id = recordId;
     }
 
     @Override
     public void updateStatus(int recordId){
-
+        id = recordId;
     }
 }

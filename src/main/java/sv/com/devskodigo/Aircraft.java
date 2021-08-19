@@ -28,7 +28,7 @@ public class Aircraft implements DataOperations {
     private float maxFuel;
 
     @Getter @Setter
-    private int Status;
+    private int status;
 
     XSSFWorkbook workbook;
     XSSFSheet sheet;
@@ -78,6 +78,8 @@ public class Aircraft implements DataOperations {
                     case 3:
                         usrContinue = 0;
                         break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: %d".formatted(menuOption));
                 }
 
             }catch(InputMismatchException ime){
@@ -145,7 +147,7 @@ public class Aircraft implements DataOperations {
 
     @Override
     public void updateData(int recordId){
-
+        System.out.println("Cheers from updateData: coming next");
     }
 
     @Override
@@ -199,6 +201,8 @@ public class Aircraft implements DataOperations {
                         break;
                     case 3:
                         break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: %d".formatted(updateRowOperation));
                 }//end of switch(usrOpt)
             }//end of dataFound
         }catch(Exception e){
@@ -209,11 +213,11 @@ public class Aircraft implements DataOperations {
 
     @Override
     public void deleteData(int recordId){
-
+        System.out.println("Cheers from deleteData: coming next");
     }
 
     @Override
     public void updateStatus(int recordId){
-
+        System.out.println("Cheers from updateStatus: coming next");
     }
 }

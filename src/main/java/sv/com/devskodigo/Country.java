@@ -9,7 +9,6 @@ comments:
 
  */
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -90,6 +89,8 @@ public class Country implements DataOperations {
                     case 3:
                         usrContinue = 0;
                         break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: %d".formatted(menuOption));
                 }
 
             }catch(InputMismatchException ime){
@@ -203,6 +204,8 @@ public class Country implements DataOperations {
                         break;
                     case 3:
                         break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: %d".formatted(updateRowOperation));
                 }//end of switch(usrOpt)
             }//end of dataFound
         }catch(Exception e){
@@ -224,7 +227,5 @@ public class Country implements DataOperations {
     }
 
     @Override
-    public void updateStatus(int recordId){
-
-    }
+    public void updateStatus(int recordId){System.out.println("Cheers from update: coming next");}
 }

@@ -5,7 +5,7 @@ purpose:
 project's main class, it's the pipeline for submenu and execute a requested class
 create an XLSX during first run
 author: hftamayo
-TODO:
+TO-DO:
 1. clean the screen fuction -> OS independent
 2. loop back to main menu
 3. if the xlsx exist then open it instead of create it again
@@ -13,13 +13,11 @@ TODO:
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class FlightsErp {
     private static Scanner rawData = new Scanner(System.in);
 
-    public static void showSubMenu(int mnu){
+    public static void showSubMenu(int mnu) throws IllegalStateException {
         int subMenuOption = 0;
         switch(mnu){
             case 1:
@@ -55,6 +53,8 @@ public class FlightsErp {
                         case 6:
                             menu1 = 0;
                             break;
+                        default:
+                            throw new IllegalStateException("Unexpected value: %d".formatted(subMenuOption));
                     }//end of catalog submenu options
                 }while(menu1 == 1);
 
@@ -67,8 +67,10 @@ public class FlightsErp {
                 subMenuOption = rawData.nextInt();
                 switch (subMenuOption){
                     case 1:
-                        //TODO
+                        System.out.println("Case 1");//TO-DO
                         break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: %d".formatted(subMenuOption));
                 }//end of flight submenu options
                 break;
 
@@ -82,10 +84,14 @@ public class FlightsErp {
                         ReportSummary reportSummary = new ReportSummary();
                         break;
                     case 2:
-                        //TODO
+                        //TO-DO
                         break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + subMenuOption);
                 } //end of report submenu options
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + mnu);
         }//end of first switch loop
     }//end of showSubMenu method
 
@@ -104,7 +110,9 @@ public class FlightsErp {
                 menuOption = rawData.nextInt();
                 switch(menuOption){
                     case 1:
+                        break;
                     case 2:
+                        break;
                     case 3:
                         showSubMenu(menuOption);
                         break;
